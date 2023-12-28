@@ -10,7 +10,6 @@ public class LoginResponse {
 		this.status = status;
 	}
 	
-		
 	public String getMessage() {
 		return message;
 	}

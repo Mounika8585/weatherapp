@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,7 +17,6 @@ import com.example.Dto.UserDTO;
 import com.example.Entity.User;
 import com.example.Service.UserService;
 import com.example.response.LoginResponse;
-
 
 @RestController
 @CrossOrigin
@@ -39,16 +40,18 @@ public class UserController {
 	}
 	
 	@GetMapping("/users")
-	public ResponseEntity<List<User>> findAllUsers() {
+    public ResponseEntity<List<User>> findAllUsers() {
         List<User> users = userService.findAllUsers();
         return ResponseEntity.ok(users);
-	}
-	@PostMapping(path = "/addUsers")
+    }
+	@PostMapping(path = "/saveMultiple")
 	public List<String> saveMultipleUsers(@RequestBody List<UserDTO> userDTOList) {
 	    return userService.addMultipleUsers(userDTOList);
 	}
-	@PostMapping(path = "/update")
-	public String updateUser(@RequestBody UserDTO userDTO) {
-	    return userService.updateUser(userDTO);
-	}
+	@PutMapping("/users/{userId}")
+    public ResponseEntity<String> updateUser(@PathVariable int userId, @RequestBody UserDTO userDTO) {
+        String updatedUsername = userService.updateUser(userId, userDTO);
+        return ResponseEntity.ok(updatedUsername);
+    }
+
 }

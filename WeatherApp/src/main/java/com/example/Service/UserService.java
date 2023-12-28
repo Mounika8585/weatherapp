@@ -11,8 +11,9 @@ public interface UserService {
 
 	String addUser(UserDTO userDTO);
 	LoginResponse loginUser(LoginDTO loginDTO);
-	List<User> findAllUsers();
-	List<String> addMultipleUsers(List<UserDTO> userDTOList);
-	String updateUser(UserDTO userDTO);
+	 List<User> findAllUsers(); 
+	 List<String> addMultipleUsers(List<UserDTO> userDTOList);
+	 
+	 String updateUser(int userId, UserDTO userDTO);
 
 }

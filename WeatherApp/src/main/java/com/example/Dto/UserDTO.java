@@ -2,24 +2,24 @@ package com.example.Dto;
 
 public class UserDTO {
 	
-	private int userid;
+//	private int userid;
 	private String username;
 	private String email;
 	private String password;
-	public UserDTO(int userid, String username, String email, String password) {
-		this.userid = userid;
+	public UserDTO( String username, String email, String password) {
+//		this.userid = userid;
 		this.username = username;
 		this.email = email;
 		this.password = password;
 	}
 	public UserDTO() {
 	}
-	public int getUserid() {
-		return userid;
-	}
-	public void setUserid(int userid) {
-		this.userid = userid;
-	}
+//	public int getUserid() {
+//		return userid;
+//	}
+//	public void setUserid(int userid) {
+//		this.userid = userid;
+//	}
 	public String getUsername() {
 		return username;
 	}
@@ -40,7 +40,7 @@ public class UserDTO {
 	}
 	@Override
 	public String toString() {
-		return "UserDTO [userid=" + userid + ", username=" + username + ", email=" + email + ", password=" + password
+		return "UserDTO [username=" + username + ", email=" + email + ", password=" + password
 				+ "]";
 	}
 	
